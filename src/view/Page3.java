@@ -104,6 +104,7 @@ public class Page3 {
 			try {
 				if (struk.exists()) {
 					struk.delete();
+					struk.createNewFile();
 				}else {
 					try {
 						struk.createNewFile();
