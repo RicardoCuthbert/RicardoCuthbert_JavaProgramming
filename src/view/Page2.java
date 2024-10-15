@@ -133,6 +133,7 @@ public class Page2 {
 		brandtf.clear();
 		colortf.clear();
 		totaltf.clear();
+		urmoneytf.clear();
 	}
 	
 	@SuppressWarnings({ "unused", "resource" })
