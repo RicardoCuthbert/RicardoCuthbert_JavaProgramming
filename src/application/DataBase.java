@@ -81,10 +81,11 @@ public class DataBase {
 		String query = "UPDATE menu SET model = ?, brand = ?, color = ?, price = ? WHERE id = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
-			ps.setString(2, menu.getModel());
-			ps.setString(3, menu.getBrand());
-			ps.setString(4, menu.getColor());
-			ps.setInt(5, menu.getPrice());
+			ps.setString(1, menu.getModel());
+			ps.setString(2, menu.getBrand());
+			ps.setString(3, menu.getColor());
+			ps.setInt(4, menu.getPrice());
+			ps.setString(5, menu.getId());
 			ps.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
