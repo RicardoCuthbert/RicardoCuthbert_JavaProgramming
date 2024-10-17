@@ -145,31 +145,32 @@ public class Page1View {
 			String color = colortf.getText();
 			String price = pricetf.getText();
 			String id = "000";
-			
-			if (menuList.size()== 0) {
+
+			if (menuList.size() == 0) {
 				try {
 					id = brand.charAt(0) + "001";
-				}catch (StringIndexOutOfBoundsException e) {
+				} catch (StringIndexOutOfBoundsException e) {
 					e.printStackTrace();
 				}
-			}else {
+			} else {
 				int total = menuList.size();
-				int lastind = total-1;
+				int lastind = total - 1;
 				Stock last = menuList.get(lastind);
 				String lastid = last.getId();
 				int lastnum = Integer.parseInt(lastid.substring(1));
-				
-				int newNum = lastnum+1;
+
+				int newNum = lastnum + 1;
 				String idNum = String.format("%03d", newNum);
 				try {
 					id = brand.charAt(0) + idNum;
-				}catch (StringIndexOutOfBoundsException e) {
+				} catch (StringIndexOutOfBoundsException e) {
 					e.printStackTrace();
 				}
 			}
-			
+
 			for (Stock stock : menuList) {
-				if (stock.getModel().equals(model) && stock.getBrand().equals(brand)&& stock.getColor().equals(color)) {
+				if (stock.getModel().equals(model) && stock.getBrand().equals(brand)
+						&& stock.getColor().equals(color)) {
 					alert(AlertType.ERROR, "Error", "Validation Error", "Code must be different from existed");
 					return;
 				}
@@ -197,12 +198,12 @@ public class Page1View {
 			String model = modeltf.getText();
 			String brand = brandtf.getText();
 			String color = colortf.getText();
-			String price = colortf.getText();
+			String price = pricetf.getText();
 			String id = "000";
 			for (Stock stock : menuList) {
-				if (stock.getModel().equals(model) && stock.getBrand().equals(brand)&& stock.getColor().equals(color)) {
+				if (stock.getModel().equals(model) && stock.getBrand().equals(brand)
+						&& stock.getColor().equals(color)) {
 					id = stock.getId();
-					return;
 				}
 			}
 
@@ -221,7 +222,7 @@ public class Page1View {
 			this.populateTable();
 			alert(AlertType.INFORMATION, "Cool", "Info", "The menu succesfully delete");
 		});
-		
+
 		buyBtn.setOnAction(event -> {
 			Page2 page2 = new Page2(stage);
 			stage.setScene(page2.scene);
